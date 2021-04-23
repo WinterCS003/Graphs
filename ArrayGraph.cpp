@@ -70,8 +70,41 @@ void ArrayGraph::DepthFirst() const {
   std::cout << std::endl;
 }
 
-void ArrayGraph::edges() const {
+void ArrayGraph::BreadthFirst(char node, bool* visited) const {
+  int index = vertexIndex(node);
 
+  if(index == -1){
+    return;
+  }
+
+  if(!visited[index]){
+    std::cout << node << " -> ";
+    visited[index] = true;
+  }
+  // print all adjacent vertices/vertices in the same level
+  for(int j = 0; j < count; j++){
+    if(myGraph[index][j] != -1 && !visited[j]){
+      std::cout << vertices[j] << " -> ";
+      visited[j] = true;
+    }
+  }
+
+  // move to next level
+  for(int j = 0; j < count; j++){
+    if(myGraph[index][j] != -1){
+      BreadthFirst(vertices[j], visited);
+    }
+  }
+}
+
+void ArrayGraph::BreadthFirst() const {
+  if(isEmpty()){
+    return;
+  }
+
+  bool visited[count];
+  BreadthFirst(vertices[0], visited);
+  std::cout << std::endl;
 }
 
 void ArrayGraph::insertVertex(char node){

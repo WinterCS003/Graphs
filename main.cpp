@@ -27,6 +27,26 @@ int main() {
     test1.insertEdge('8', '9', 1);
 
     test1.DepthFirst();
+
+    ArrayGraph test2;
+    test2.insertVertex('A');
+    test2.insertVertex('B');
+    test2.insertVertex('C');
+    test2.insertVertex('D');
+    test2.insertVertex('E');
+    test2.insertVertex('F');
+
+    test2.insertEdge('A', 'B', 1);
+    test2.insertEdge('A', 'C', 1);
+    test2.insertEdge('A', 'D', 1);
+    test2.insertEdge('B', 'C', 1);
+    test2.insertEdge('B', 'E', 1);
+    test2.insertEdge('C', 'D', 1);
+    test2.insertEdge('C', 'E', 1);
+    test2.insertEdge('C', 'F', 1);
+    test2.insertEdge('F', 'D', 1);
+
+    test2.BreadthFirst();
   } catch(const char* msg){
     std::cerr << msg << std::endl;
   }

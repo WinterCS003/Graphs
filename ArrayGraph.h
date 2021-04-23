@@ -9,8 +9,9 @@ class ArrayGraph{
     int** myGraph; // dynamic 2D array implementation of edges
     int count;     // number of vertices
 
-    void DepthFirst(char node, bool* visited) const;
     int vertexIndex(char node) const;
+    void DepthFirst(char node, bool* visited) const;
+    void BreadthFirst(char node, bool* visited) const;
   public:
     // CONSTRUCTORS & DESTRUCTORS
     ArrayGraph();
@@ -19,7 +20,7 @@ class ArrayGraph{
     // ACCESSORS
     bool isEmpty() const;  // returns true if graph is empty
     void DepthFirst() const;
-    void edges() const;    // returns list of all edges
+    void BreadthFirst() const;
 
     // MUTATORS
     void insertVertex(char node); // inserts a new vertex
